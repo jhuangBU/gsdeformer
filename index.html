@@ -166,11 +166,25 @@
 <section class="section"  style="padding-top: 0rem;">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Quality and Roubustness</h2>
-    <video id="deform-quality" autoplay controls muted loop playsinline height="100%">
-      <source src="./static/videos/deformation_quality.mp4" type="video/mp4">
-    </video>
+    <div id="results-carousel" class="carousel results-carousel">
+      <div class="item item-1">
+        <video id="deform-quality" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/composite_animation.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item item-2">
+        <video id="deform-quality" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/large_scale_animation.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item item-3">
+        <video id="deform-quality" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/deformation_quality.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
     <p>
-      Our method achieves high-quality deformation, and remains robust even under extreme deformations
+      Our method can perform complex deformation, and remains robust even under extreme deformations
     </p>
   </div>
 </section>
