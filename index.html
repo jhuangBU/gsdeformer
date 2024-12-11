@@ -56,7 +56,6 @@
   </div>
 </nav>
 
-
 <section class="hero">
   <div class="hero-body" style="padding-bottom: 1rem;">
     <div class="container is-max-desktop">
@@ -122,7 +121,7 @@
 
 <section class="hero teaser">
   <div class="container is-max-desktop">
-    <div class="hero-body">
+    <div class="hero-body"  style="padding-bottom: 1rem;">
       <h2 class="subtitle has-text-centered">
         TL;DR: Real-time cage-based deformation on 3DGS or it's variants, without architectual changes
       </h2>
@@ -131,42 +130,7 @@
   </div>
 </section>
 
-
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-1">
-          <video poster="" id="bonsai" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/bonsai.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-2">
-          <video poster="" id="dtu_scan105" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dtu_scan105.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-3">
-          <video poster="" id="nerf_lego" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/nerf_lego.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-4">
-          <video poster="" id="nsvf_robot" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/nsvf_robot.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
+<section class="section"  style="padding-top: 0rem;">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -174,13 +138,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present GSDeformer, a method that achieves free-form deformation on 3D Gaussian Splatting(3DGS) without requiring any architectural changes.
+            We present GSDeformer, a method that achieves cage-based deformation on 3D Gaussian Splatting (3DGS). 
           </p>
           <p>
-            Our method extends cage-based deformation, a traditional mesh deformation method, to 3DGS. This is done by converting 3DGS into a novel proxy point cloud representation, where its deformation can be used to infer the transformations to apply on the 3D gaussians making up 3DGS. We also propose an automatic cage construction algorithm for 3DGS to minimize manual work. Our method does not modify the underlying architecture of 3DGS. Therefore, any existing trained vanilla 3DGS can be easily edited by our method. 
+            Our method bridges cage-based deformation and 3DGS using a proxy point cloud representation. The point cloud is created from 3DGS, and deformations on the point cloud translate to transformations on the 3D Gaussians that comprise 3DGS. To handle potential bending from deformation, we employ a splitting process to approximate it. Our method does not extend or modify the core architecture of 3DGS; thus, it can work with any existing trained vanilla 3DGS as well as its variants. We also automated cage construction from 3DGS for convenience. 
           </p>
           <p>
-            We compare the deformation capability of our method against other existing methods, demonstrating the ease of use and comparable quality of our method, despite being more direct and thus easier to integrate with other concurrent developments on 3DGS.
+            Experiments show that GSDeformer produces superior deformation results than current methods, is robust under extreme deformations, does not require retraining for editing, runs in real-time(60FPS), and can extend to other 3DGS variants.
           </p>
         </div>
       </div>
@@ -191,16 +155,13 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Method Diagram</h2>
-        <div class="publication-video">
-          <img src="static/images/fig-method.png">
-        </div>
-        <p>We propose a deformation algorithm that deforms gaussians making up the 3DGS representation in 5-steps. We also provide a cage-building algorithm to automatically build cages from 3DGS scenes for deformation.</p>
+        <img src="static/images/method.svg">
+        <p>Our method deforms gaussians making up the 3DGS representation by converting it to a proxy point cloud representation, deforms it and inferrring the deformation to apply on the gaussians. Splitting are performed to approximate bending gaussians.</p>
       </div>
     </div>
     <!--/ Method -->
   </div>
 </section>
-
 
 <!-- <section class="section">
   <div class="container is-max-desktop">
